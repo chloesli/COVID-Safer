@@ -11,17 +11,11 @@ module.exports = {
     name: {
       required: true,
       type: 'string',
-      isEmail: true,
-      description: 'The email address for the new account, e.g. m@example.com.',
-      extendedDescription: 'Must be a valid email address.',
     },
 
     address: {
       required: true,
       type: 'string',
-      maxLength: 200,
-      example: 'passwordlol',
-      description: 'The unencrypted password to use for the new account.'
     },
 
     suburb:  {

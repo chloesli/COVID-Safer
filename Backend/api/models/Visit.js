@@ -27,7 +27,7 @@ module.exports = {
       //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
       //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
 
-      // Add a reference to User
+      // Add a reference to User (M:1)
       visitor: {
         model: 'User',
       },

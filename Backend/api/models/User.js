@@ -54,13 +54,6 @@ module.exports = {
         required: true,
         description: 'Is user a business',
       },
-  
-      hasCovid: {
-        type: 'boolean',
-        required: true,
-        description: 'Does user have COVID',
-      },
-
       
       //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
       //  ║╣ ║║║╠╩╗║╣  ║║╚═╗

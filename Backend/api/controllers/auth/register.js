@@ -57,14 +57,14 @@ module.exports = {
     address: {
       required: false,
       type: 'string',
-      defaultsTo: "",
+      defaultsTo: '',
       description: 'Users address'
     },
 
     ageRange: {
       type: 'string',
       required: false,
-      defaultsTo: "",
+      defaultsTo: '',
       description: 'Age range of users',
     },
 
@@ -108,6 +108,8 @@ module.exports = {
       });
     }
 
+    console.log(inputs.emailAddress.toLowerCase(), inputs.firstName.toLowerCase(),  inputs.lastName.toLowerCase(), inputs.address, inputs.ageRange, inputs.isBusiness,  await sails.helpers.passwords.hashPassword(inputs.password))
+    
     var newUserRecord = await User.create(_.extend({
       emailAddress: inputs.emailAddress.toLowerCase(),
       firstName: inputs.firstName.toLowerCase(),
