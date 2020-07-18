@@ -6,6 +6,8 @@
   --headingPrimary:#333333;
   --headingSecondary: #73A5E0;
   --darkGrey: #45505b;
+  --primary: #0C4654;
+
   --boxShadow: 0px 4px 12px rgba(0, 0, 0, 0.09); 
   --bodyText: 14px;
   --headingSecondarySize: 14px;
@@ -17,9 +19,27 @@
   padding:0;
   box-sizing:border-box;
 }
-
+/* The input bars */
+input[type=text], input[type=email], input[type=password] {
+  background-color:purple;
+  font-size: 18px;
+  border: none;
+}
+/*when the input bar is clicked */
+input[type=text]:focus, input[type=email]:focus, input[type=password]:focus {
+  background-color:pink;
+  font-size: 18px;
+  border: none;
+}
+/*  The submit Button */ 
+input[type=submit] {
+  padding:20px;
+  background-color:plum;
+  border: 1px solid blue;
+}
+/*Logout button in the navbar at the bottom*/
 .logout-but {
-  background-color:var(--headingSecondary) !important;
+  background-color:var(--primary) !important;
   padding: 5px 5px;
   width: calc(100% - 20px);
   min-width:100px;
@@ -28,6 +48,7 @@
   bottom: 15px;
   left: 10px;
 }
+/* All links dont touch*/
 a {
   color: var(--mainText);
   text-decoration: none;
@@ -147,11 +168,13 @@ a {
     display: none;
   }
 }
+/* All links dont touch END */
 
-/* Section */
+/* Section wrapper for all pages */
 section:first-of-type {
   padding-top:80px;
 }
+/* Spacing Stuff */
 .section-wrap {
   display:flex;
   flex-direction: column;

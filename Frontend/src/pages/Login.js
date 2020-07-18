@@ -47,11 +47,11 @@ export class Login extends Component {
             <section className="section-wrap">
             <h1>Login</h1>    
                 <label>
-                    Email Address:
+                    Email Address: <p></p>
                     <input type="email" name="email" value={this.state.email} onChange={this.handleChange}/>
                 </label>
                 <label>
-                    Password:
+                    Password:<p></p>
                     <input type="password" name="password" value={this.state.password} onChange={this.handleChange} />
                 </label>
                 <input type="submit" value="Submit" onClick={this.handleSubmit}/>
