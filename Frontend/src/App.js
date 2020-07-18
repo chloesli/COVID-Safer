@@ -8,6 +8,8 @@ import UserSignUp from './pages/UserSignUp'
 import UserProfile from './pages/UserProfile'
 import BusinessProfile from './pages/BusinessProfile'
 import BusinessSignUp from './pages/BusinessSignUp'
+import Logout from './pages/Logout'
+import BusinessLogin from './pages/BusinessLogin'
 import {
   Switch,
   Route,
@@ -20,10 +22,12 @@ function App() {
       <Route exact path="/" component={Home}/>
       <Route exact path="/find-a-business" component={FindBusiness}/>
       <Route exact path="/Login" component={Login}/>
+      <Route exact path="/BusinessLogin" component={BusinessLogin}/>
       <Route exact path="/UserSignUp" component={UserSignUp}/>
       <Route exact path="/UserProfile" component={UserProfile}/>
       <Route exact path="/BusinessProfile" component={BusinessProfile}/>
       <Route exact path="/BusinessSignUp" component={BusinessSignUp}/>
+      <Route exact path="/Logout" component={Logout}/>
    
       {
         

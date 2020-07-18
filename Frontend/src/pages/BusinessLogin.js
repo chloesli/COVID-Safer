@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {AppContext} from '../context'
 import { Redirect } from "react-router-dom";
-export class BusinessSignUp extends Component {
+export class BusinessLogin extends Component {
     constructor(props) {
         super(props)
     
@@ -22,12 +22,11 @@ export class BusinessSignUp extends Component {
     }
     
     handleSubmit(event) {
-        const {registerNewBusiness} = this.context;
+        const {businessLogin} = this.context;
         console.log("hi")
-        let status = registerNewBusiness();
-        if (status) {
-            this.setState({redirect: "/BusinessLogin"})
-
+        let loginStatus = businessLogin();
+        if (loginStatus) {
+            this.setState({redirect: "/"})
         }
         event.preventDefault();
     }
@@ -37,11 +36,7 @@ export class BusinessSignUp extends Component {
         }
         return (
             <section className="section-wrap">
-            <h1>Business Sign Up</h1>    
-                <label>
-                    Email Address:
-                    <input type="email" name="email" value={this.state.email} onChange={this.handleChange}/>
-                </label>
+            <h1>Login</h1>    
                 <label>
                     Email Address:
                     <input type="email" name="email" value={this.state.email} onChange={this.handleChange}/>
@@ -56,4 +51,4 @@ export class BusinessSignUp extends Component {
     }
 }
 
-export default BusinessSignUp
+export default BusinessLogin
