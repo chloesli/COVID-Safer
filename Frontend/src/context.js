@@ -25,7 +25,7 @@ export class AppProvider extends Component {
                 this.setState({
                     loggedIn: "true",
                     user: res.data.user,
-                    authToken: res.token,
+                    authToken: res.data.token,
                     isBusiness: "false",
                 })
                 localStorage.setItem('user', JSON.stringify(res.data.user))
@@ -72,6 +72,7 @@ export class AppProvider extends Component {
         })
     }
     registerNewBusiness = (business) => {
+        console.log(business)
         return new Promise((resolve, reject) => {
             axios.post(`http://localhost:1337/api/auth/register?emailAddress=${business.email}
             &password=${business.password}&firstName=${business.fname}&lastName=${business.lname}

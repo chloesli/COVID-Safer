@@ -8,7 +8,9 @@ export class BusinessSignUp extends Component {
         this.state = {
              email: "",
              password: "",
-             bname: "",
+             fname: "",
+             lname: "",
+             address: "",
              redirect: null,
         }
         this.handleChange = this.handleChange.bind(this);
