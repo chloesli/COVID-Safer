@@ -40,6 +40,8 @@ module.exports.routes = {
   'GET /api/all-places':                 {action: 'all-places'},
 
   'GET /api/find-by-user':                 {action: 'businessFlow/find-by-user'},
+  'GET /api/users-visited':                 {action: 'businessFlow/users-visited'},
+  
   
 
   /***************************************************************************
