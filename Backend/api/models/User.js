@@ -48,7 +48,20 @@ module.exports = {
         required: false,
         description: 'Age range of users',
       },
+
+      isBusiness: {
+        type: 'boolean',
+        required: true,
+        description: 'Is user a business',
+      },
   
+      hasCovid: {
+        type: 'boolean',
+        required: true,
+        description: 'Does user have COVID',
+      },
+
+      
       //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
       //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
       //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝
@@ -57,8 +70,19 @@ module.exports = {
       //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
       //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
       //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
-  
-    },
+      
+      // Add a reference to Visit 1:M
+      visit: {
+        collection: 'Visit',
+        via:  'visitor'
+      },  
+
+      // Add a reference to Place 1:1, only for business owners
+      ownedPlace: {
+        model: 'Place',
+        unique: true
+      }
+    }
   
   };
   
