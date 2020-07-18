@@ -189,12 +189,12 @@ section:first-of-type {
 
 /* Background for login page*/
 #login.section-wrap {
-  background: linear-gradient(45deg, #92D2E2, #28FFFF);
+  background: linear-gradient(24.79deg, rgba(146, 210, 226, 0.96) 35.94%, rgba(40, 255, 255, 0.68) 100%);
 }
 
-/* Background for login page*/
+/* Background for sign up page*/
 #signup.section-wrap {
-  background: linear-gradient(45deg, #92D2E2, #28FFFF);
+  background: #92D2E2;
 }
 /* Background for login page*/
 #user-profile.section-wrap {
