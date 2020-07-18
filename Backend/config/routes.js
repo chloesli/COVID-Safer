@@ -23,13 +23,13 @@ module.exports.routes = {
   
   //Sample endpoints
   'GET /public':                              {action: 'public'},
-  'GET /private':                              {action: 'private'},
+  'GET /private':                             {action: 'private'},
 
   //Authentication endpoints
   '/api/auth/logout':                         {action: 'auth/logout'},
   'POST /api/auth/register':                  {action: 'auth/register'},
   'POST /api/auth/login':                     {action: 'auth/login'},
-
+  'POST /api/auth/add-place':                 {action: 'auth/add-place'}
 
   /***************************************************************************
   *                                                                          *
