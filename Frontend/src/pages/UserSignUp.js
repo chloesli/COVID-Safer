@@ -1,11 +1,72 @@
 import React, { Component } from 'react'
+import {AppContext} from '../context'
+import { Redirect } from "react-router-dom";
+export class UserSignUp extends Component {
+    constructor(props) {
+        super(props)
+    
+        this.state = {
+             email: "",
+             password: "",
+             fname: "",
+             lname: "",
+             redirect: null,
+        }
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
 
-export default class UserSignUp extends Component {
+    }
+    static contextType = AppContext;
+
+    handleChange = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value,
+        })
+    }
+    
+    handleSubmit(event) {
+        const {registerNewUser} = this.context;
+        console.log("hi")
+        const user = {
+            fname: this.state.fname,
+            lname: this.state.lname,
+            email: this.state.email,
+            password: this.state.password
+        }
+        
+        let status = registerNewUser(user);
+        if (status) {
+            this.setState({redirect: "/Login"})
+        }
+        event.preventDefault();
+    }
     render() {
+        if (this.state.redirect) {
+            return <Redirect to={this.state.redirect} />
+        }
         return (
             <section className="section-wrap">
-                User Sign Up
+            <h1>Be COVID Safer</h1>    
+                <label>
+                    First Name:
+                    <input type="text" name="fname" value={this.state.fname} onChange={this.handleChange}/>
+                </label>
+                <label>
+                    Last Name:
+                    <input type="text" name="lname" value={this.state.lname} onChange={this.handleChange}/>
+                </label>
+                <label>
+                    Email Address:
+                    <input type="email" name="email" value={this.state.email} onChange={this.handleChange}/>
+                </label>
+                <label>
+                    Password:
+                    <input type="password" name="password" value={this.state.password} onChange={this.handleChange} />
+                </label>
+                <input type="submit" value="Submit" onClick={this.handleSubmit}/>
             </section>
         )
     }
 }
+
+export default UserSignUp

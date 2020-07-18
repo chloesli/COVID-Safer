@@ -24,7 +24,11 @@ export class Login extends Component {
     handleSubmit(event) {
         const {userLogin} = this.context;
         console.log("hi")
-        let loginStatus = userLogin();
+        const user = {
+            email: this.state.email,
+            password: this.state.password
+        }
+        let loginStatus = userLogin(user);
         if (loginStatus) {
             this.setState({redirect: "/"})
         }

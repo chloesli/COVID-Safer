@@ -17,6 +17,7 @@
   padding:0;
   box-sizing:border-box;
 }
+
 .logout-but {
   background-color:var(--headingSecondary) !important;
   padding: 5px 5px;

@@ -8,13 +8,15 @@ export class BusinessSignUp extends Component {
         this.state = {
              email: "",
              password: "",
-             redirect: null
+             bname: "",
+             redirect: null,
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
 
     }
     static contextType = AppContext;
+
     handleChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value,
@@ -24,10 +26,15 @@ export class BusinessSignUp extends Component {
     handleSubmit(event) {
         const {registerNewBusiness} = this.context;
         console.log("hi")
-        let status = registerNewBusiness();
+        const business = {
+            bname: this.state.fname,
+            email: this.state.email,
+            password: this.state.password
+        }
+        
+        let status = registerNewBusiness(business);
         if (status) {
             this.setState({redirect: "/BusinessLogin"})
-
         }
         event.preventDefault();
     }
@@ -39,8 +46,8 @@ export class BusinessSignUp extends Component {
             <section className="section-wrap">
             <h1>Business Sign Up</h1>    
                 <label>
-                    Email Address:
-                    <input type="email" name="email" value={this.state.email} onChange={this.handleChange}/>
+                    Business Name:
+                    <input type="text" name="bname" value={this.state.bname} onChange={this.handleChange}/>
                 </label>
                 <label>
                     Email Address:

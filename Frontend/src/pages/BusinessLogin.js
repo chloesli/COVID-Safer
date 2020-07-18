@@ -36,7 +36,7 @@ export class BusinessLogin extends Component {
         }
         return (
             <section className="section-wrap">
-            <h1>Login</h1>    
+            <h1>Business Login</h1>    
                 <label>
                     Email Address:
                     <input type="email" name="email" value={this.state.email} onChange={this.handleChange}/>
