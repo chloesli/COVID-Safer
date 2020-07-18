@@ -23,6 +23,7 @@ module.exports.routes = {
   
   //Sample endpoints
   'GET /public':                              {action: 'public'},
+  'GET /private':                              {action: 'private'},
 
   //Authentication endpoints
   '/api/auth/logout':                         {action: 'auth/logout'},

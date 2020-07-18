@@ -16,7 +16,7 @@ module.exports = async function(req, res, next) {
 			return res.serverError(err)
 		},
 		invalid: function(err) {
-            return res.unauthorized('Unsupplied or incorrect JWT');
+            return res.serverError('Unsupplied or incorrect JWT');
 		},
 		success: function() {
 			// user has been attached to the req object (ie logged in) so we're set, they may proceed

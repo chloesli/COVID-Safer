@@ -75,7 +75,7 @@ module.exports = {
     },
 
     invalid: {
-      responseType: 'unauthorized',
+      responseType: 'serverError',
       description: 'The provided fullName, password and/or email address are invalid.',
       extendedDescription: 'If this request was sent from a graphical user interface, the request '+
       'parameters should have been validated/coerced _before_ they were sent.'
@@ -97,7 +97,7 @@ module.exports = {
     //There are users with the same email in the database, if greater than or equal to 2 throw maxUsersAssociatedWithEmail exit
     if(usersWithSameEmail.length >= 1){
       return exits.invalid({
-        message: 'There are already 2 emails associated with same email'
+        message: 'There is already 1 email associated with same email'
       });
     }
 
