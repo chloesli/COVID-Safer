@@ -20,6 +20,14 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': { view: 'pages/homepage' },
+  
+  //Sample endpoints
+  'GET /public':                              {action: 'public'},
+
+  //Authentication endpoints
+  '/api/auth/logout':                         {action: 'auth/logout'},
+  'POST /api/auth/register':                  {action: 'auth/register'},
+  'POST /api/auth/login':                     {action: 'auth/login'},
 
 
   /***************************************************************************
