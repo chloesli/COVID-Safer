@@ -25,7 +25,6 @@ module.exports = {
 
   fn: async function (inputs, exits) {
 
-    console.log("in here");
     var allPlaces = await Place.find();
 
     //Return relevant success message
