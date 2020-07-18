@@ -59,7 +59,7 @@ module.exports = {
     //Add to user collection???
     // Place.addToCollection({})
 
-    //Return relevant success message and rdbNumber
+    //Return relevant success message
     return exits.success({
       message: 'new Visit created',
       visit: visit,

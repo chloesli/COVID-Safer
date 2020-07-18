@@ -134,7 +134,7 @@ module.exports = {
       maxAge: sails.config.custom.jwtExpires
     })
 
-    //Return relevant success message and rdbNumber
+    //Return relevant success message
     return exits.success({
       message: 'new User created',
       user: newUserRecord,

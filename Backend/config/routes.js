@@ -38,6 +38,8 @@ module.exports.routes = {
   'POST /api/check-out':                 {action: 'userFlow/check-out'},
   'GET /api/places-visited':            {action: 'userFlow/places-visited'},
 
+  'GET /api/allplaces':            {action: 'all-places'},
+
   /***************************************************************************
   *                                                                          *
   * More custom routes here...                                               *

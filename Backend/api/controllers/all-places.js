@@ -1,6 +1,3 @@
-var _ = require('lodash');
-var moment = require('moment');
-
 module.exports = {
 
   friendlyName: 'Add a visit to a place',
@@ -28,17 +25,11 @@ module.exports = {
 
   fn: async function (inputs, exits) {
 
-    var userWithVisits = await User.findOne({id: this.req.user.id}).populate('visit');
-
-    for(i=0; i<userWithVisits.visit.length; i++){
-      userWithVisits.visit[i] = await Visit.findOne({id: userWithVisits.visit[i].id}).populate('places');
-    }
- 
+    console.log("in here");
+    var allPlaces = await Place.find();
 
     //Return relevant success message
-    return exits.success({
-      visitsWithPlaces: userWithVisits.visit
-    })
+    return exits.success(allPlaces);
   }
 
 };

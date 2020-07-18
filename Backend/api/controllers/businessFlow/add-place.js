@@ -59,7 +59,7 @@ module.exports = {
       postcode: inputs.postcode
     }).fetch();
 
-    //Return relevant success message and rdbNumber
+    //Return relevant success message
     return exits.success({
       message: 'new Place created',
       place: newPlace,
