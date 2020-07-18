@@ -14,6 +14,7 @@
   --headingPrimarySize: 32px;
   --Roboto:'Roboto', sans-serif;
 }
+/* everything*/
 * {
   margin: 0;
   padding:0;
@@ -24,12 +25,13 @@ input[type=text], input[type=email], input[type=password] {
   background-color:purple;
   font-size: 18px;
   border: none;
+  border-bottom: 2px solid green;
 }
 /*when the input bar is clicked */
 input[type=text]:focus, input[type=email]:focus, input[type=password]:focus {
   background-color:pink;
   font-size: 18px;
-  border: none;
+  border: 4px dashed rebeccapurple;
 }
 /*  The submit Button */ 
 input[type=submit] {
@@ -173,6 +175,7 @@ a {
 /* Section wrapper for all pages */
 section:first-of-type {
   padding-top:80px;
+  height:calc(100vh);
 }
 /* Spacing Stuff */
 .section-wrap {
@@ -181,5 +184,28 @@ section:first-of-type {
   align-items:center;
   justify-content: center;
   padding: 30px 0px;
+  background-color:red;
 }
 
+/* Background for login page*/
+#login .section-wrap {
+  background-color:red;
+}
+h1 {
+  font-family:'Courier New', Courier, monospace;
+}
+/* Background for login page*/
+#signup .section-wrap {
+  background-color:red;
+}
+/* Background for login page*/
+#user-profile .section-wrap {
+  background-color:red;
+}
+/* Background for business login page*/
+#business-login .section-wrap {
+  background-color:red;
+}
+#business-signup .section-wrap {
+  background-color:red;
+}

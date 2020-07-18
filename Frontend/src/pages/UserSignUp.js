@@ -49,7 +49,7 @@ export class UserSignUp extends Component {
             return <Redirect to={this.state.redirect} />
         }
         return (
-            <section className="section-wrap">
+            <section className="section-wrap" id="signup">
             <h1>Be COVID Safer</h1>    
                 <label>
                     First Name:
