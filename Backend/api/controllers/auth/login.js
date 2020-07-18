@@ -46,7 +46,7 @@ password attempt.`,
     badCombo: {
       description: `The provided Real Deal Number/ABF Number and password combination does not
       match any user in the database.`,
-      responseType: 'unauthorized',
+      responseType: 'serverError',
       message: 'The provided Real Deal Number/ABF Number and password combination are incorrect'
     }
 
