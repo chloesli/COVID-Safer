@@ -36,6 +36,7 @@ module.exports.routes = {
   //User
   'POST /api/check-in':                 {action: 'userFlow/check-in'},
   'POST /api/check-out':                 {action: 'userFlow/check-out'},
+  'POST /api/covid':                 {action: 'userFlow/covid'},
   'GET /api/places-visited':            {action: 'userFlow/places-visited'},
   'GET /api/all-places':                 {action: 'all-places'},
 
