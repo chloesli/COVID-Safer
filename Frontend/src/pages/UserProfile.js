@@ -25,8 +25,8 @@ export class UserProfile extends Component {
             return <section className="section-wrap">Please Login to View your Profile</section>
         }
         return (
-            <section className="section-wrap">
-                Your Covid Safer Profile
+            <section className="section-wrap profile">
+                <h1>Your Covid Safer Profile</h1>
                 <DefaultIcon letters={firstName[0]}></DefaultIcon>
                 <ul>
                     <li>Name: {`${firstName} ${lastName}`}</li>

@@ -24,7 +24,7 @@ export class BusinessProfile extends Component {
             return <section className="section-wrap">Please Login to View your Profile</section>
         }
         return (
-            <section className="section-wrap">
+            <section className="section-wrap profile">
                 <h1>Manage your Account</h1>
                 <h2>Business Account Details</h2>
                 <DefaultIcon letters={firstName[0]}></DefaultIcon>

@@ -49,22 +49,22 @@ export class UserSignUp extends Component {
             return <Redirect to={this.state.redirect} />
         }
         return (
-            <section className="section-wrap">
+            <section className="section-wrap" id="signup">
             <h1>Be COVID Safer</h1>    
                 <label>
-                    First Name:
+                    First Name:<p></p>
                     <input type="text" name="fname" value={this.state.fname} onChange={this.handleChange}/>
                 </label>
                 <label>
-                    Last Name:
+                    Last Name:<p></p>
                     <input type="text" name="lname" value={this.state.lname} onChange={this.handleChange}/>
                 </label>
                 <label>
-                    Email Address:
+                    Email Address:<p></p>
                     <input type="email" name="email" value={this.state.email} onChange={this.handleChange}/>
                 </label>
                 <label>
-                    Password:
+                    Password:<p></p>
                     <input type="password" name="password" value={this.state.password} onChange={this.handleChange} />
                 </label>
                 <input type="submit" value="Submit" onClick={this.handleSubmit}/>
