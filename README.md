@@ -6,4 +6,4 @@ A better contact tracing app
 Development getting started: 
 - Install WSL (if on Windows) 
 - Set up SSH keys on Github
-- Install NVM and Node 10
+- Install NVM and Node 10, and then do npm install
