@@ -191,9 +191,7 @@ section:first-of-type {
 #login .section-wrap {
   background-color:red;
 }
-h1 {
-  font-family:'Courier New', Courier, monospace;
-}
+
 /* Background for login page*/
 #signup .section-wrap {
   background-color:red;
@@ -208,4 +206,25 @@ h1 {
 }
 #business-signup .section-wrap {
   background-color:red;
+}
+
+h1 {
+  font-family:'Courier New', Courier, monospace;
+}
+h2 {
+  color: peachpuff;
+}
+h3 {
+  color:saddlebrown;
+}
+.profile ul {
+  width:100%;
+  display:block;
+  padding:20px;
+}
+/* List stuff */
+.profile li {
+  display:block;
+  border-bottom:1px solid slateblue;
+  width:100%;
 }
