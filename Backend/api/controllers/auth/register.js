@@ -57,13 +57,20 @@ module.exports = {
     address: {
       required: false,
       type: 'string',
+      defaultsTo: "",
       description: 'Users address'
     },
 
     ageRange: {
       type: 'string',
       required: false,
+      defaultsTo: "",
       description: 'Age range of users',
+    },
+
+    isBusiness: {
+      type: 'boolean',
+      defaultsTo: false,
     },
 
   },
@@ -105,8 +112,9 @@ module.exports = {
       emailAddress: inputs.emailAddress.toLowerCase(),
       firstName: inputs.firstName.toLowerCase(),
       lastName: inputs.lastName.toLowerCase(),
-      address: inputs.overThirteen,
-      ageRange: inputs.acceptedPrivacy,
+      address: inputs.address,
+      ageRange: inputs.ageRange,
+      isBusiness: inputs.isBusiness,
       password: await sails.helpers.passwords.hashPassword(inputs.password),
     }))
     .intercept({name: 'UsageError'}, 'invalid')

@@ -9,11 +9,22 @@ module.exports = {
         type: 'string',
         required: true,
       },
-      
-      uniqueCode: {
+
+      address: {
+        type: 'string',
+        required: true,
+      },
+
+      suburb: {
+        type: 'string',
+        required: true,
+      },
+
+      postcode: {
         type: 'number',
         required: true,
       },
+    
 
     //   covidScare: {
     //     type: 'boolean',
@@ -32,6 +43,12 @@ module.exports = {
       // Add a reference to Visit M:M
       visitor: {
         collection: 'Visit',
+        via: 'places'
+      },
+
+      // Add a reference to Visit M:M
+      covidInstances: {
+        collection: 'Covid',
         via: 'places'
       },
 

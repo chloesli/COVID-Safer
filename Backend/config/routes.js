@@ -29,7 +29,8 @@ module.exports.routes = {
   '/api/auth/logout':                         {action: 'auth/logout'},
   'POST /api/auth/register':                  {action: 'auth/register'},
   'POST /api/auth/login':                     {action: 'auth/login'},
-  'POST /api/auth/add-place':                 {action: 'auth/add-place'}
+
+  'POST /api/auth/add-place':                 {action: 'businessFlow/add-place'}
 
   /***************************************************************************
   *                                                                          *
