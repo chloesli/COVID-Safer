@@ -12,7 +12,7 @@ module.exports = {
   
       departDateTime: {
         type: 'string',
-        required: true,
+        required: false,
       },
   
 
@@ -28,7 +28,7 @@ module.exports = {
       //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
 
       // Add a reference to User (M:1)
-      visitor: {
+      owningUser: {
         model: 'User',
       },
 

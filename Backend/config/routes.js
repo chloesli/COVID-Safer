@@ -30,7 +30,12 @@ module.exports.routes = {
   'POST /api/auth/register':                  {action: 'auth/register'},
   'POST /api/auth/login':                     {action: 'auth/login'},
 
-  'POST /api/add-place':                 {action: 'businessFlow/add-place'}
+  //Business
+  'POST /api/add-place':                 {action: 'businessFlow/add-place'},
+
+  //User
+  'POST /api/check-in':                 {action: 'userFlow/check-in'},
+  'POST /api/check-out':                 {action: 'userFlow/check-out'}
 
   /***************************************************************************
   *                                                                          *

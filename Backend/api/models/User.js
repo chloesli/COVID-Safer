@@ -67,7 +67,7 @@ module.exports = {
       // Add a reference to Visit 1:M
       visit: {
         collection: 'Visit',
-        via:  'visitor'
+        via:  'owningUser'
       },  
 
       // Add a reference to Covid 1:M
