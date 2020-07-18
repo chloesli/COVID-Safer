@@ -13,20 +13,23 @@ export class UserProfile extends Component {
 
     render() {
         const {
-            fname,
-            lname,
+            firstName,
+            lastName,
             mobile,
             age,
             address,
             email,
         } = this.context.user;
         console.log(this.context);
+        if (!firstName) {
+            return <section className="section-wrap">Please Login to View your Profile</section>
+        }
         return (
             <section className="section-wrap">
                 Your Covid Safer Profile
-                <DefaultIcon letters={fname[0]}></DefaultIcon>
+                <DefaultIcon letters={firstName[0]}></DefaultIcon>
                 <ul>
-                    <li>Name: {`${fname} ${lname}`}</li>
+                    <li>Name: {`${firstName} ${lastName}`}</li>
                     <li>Mobile: {mobile}</li>
                     <li>Age: {age}</li>
                     <li>Address: {address}</li>

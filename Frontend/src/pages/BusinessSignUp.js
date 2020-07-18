@@ -8,7 +8,9 @@ export class BusinessSignUp extends Component {
         this.state = {
              email: "",
              password: "",
-             bname: "",
+             fname: "",
+             lname: "",
+             address: "",
              redirect: null,
         }
         this.handleChange = this.handleChange.bind(this);
@@ -26,17 +28,22 @@ export class BusinessSignUp extends Component {
     handleSubmit(event) {
         const {registerNewBusiness} = this.context;
         console.log("hi")
-        const business = {
-            bname: this.state.fname,
+        const user = {
+            fname: this.state.fname,
+            lname: this.state.lname,
+            address: this.state.address,
             email: this.state.email,
             password: this.state.password
         }
         
-        let status = registerNewBusiness(business);
-        if (status) {
-            this.setState({redirect: "/BusinessLogin"})
-        }
-        event.preventDefault();
+        registerNewBusiness(user)
+            .then((res) => {
+                this.setState({redirect: "/Login"})
+            }, (res) => {
+                console.log(res);
+                this.setState({errors: res.response.data.message});
+            });
+            event.preventDefault();
     }
     render() {
         if (this.state.redirect) {
@@ -44,10 +51,18 @@ export class BusinessSignUp extends Component {
         }
         return (
             <section className="section-wrap">
-            <h1>Business Sign Up</h1>    
+            <h1>Business Sign Up</h1>   
                 <label>
-                    Business Name:
-                    <input type="text" name="bname" value={this.state.bname} onChange={this.handleChange}/>
+                    First Name:
+                    <input type="text" name="fname" value={this.state.fname} onChange={this.handleChange}/>
+                </label>
+                <label>
+                    Last Name:
+                    <input type="text" name="lname" value={this.state.lname} onChange={this.handleChange}/>
+                </label> 
+                <label>
+                    Business Address:
+                    <input type="text" name="address" value={this.state.address} onChange={this.handleChange}/>
                 </label>
                 <label>
                     Email Address:

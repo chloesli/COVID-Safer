@@ -11,6 +11,7 @@ export class UserSignUp extends Component {
              fname: "",
              lname: "",
              redirect: null,
+             errors: "",
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -34,11 +35,14 @@ export class UserSignUp extends Component {
             password: this.state.password
         }
         
-        let status = registerNewUser(user);
-        if (status) {
-            this.setState({redirect: "/Login"})
-        }
-        event.preventDefault();
+        registerNewUser(user)
+            .then((res) => {
+                this.setState({redirect: "/Login"})
+            }, (res) => {
+                console.log(res);
+                this.setState({errors: res.response.data.message});
+            });
+            event.preventDefault();
     }
     render() {
         if (this.state.redirect) {
@@ -64,6 +68,9 @@ export class UserSignUp extends Component {
                     <input type="password" name="password" value={this.state.password} onChange={this.handleChange} />
                 </label>
                 <input type="submit" value="Submit" onClick={this.handleSubmit}/>
+                {(this.state.errors !== "") ?
+                    this.state.errors
+                : null}
             </section>
         )
     }

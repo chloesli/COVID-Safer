@@ -8,7 +8,8 @@ export class Login extends Component {
         this.state = {
              email: "",
              password: "",
-             redirect: null
+             redirect: null,
+             errors: "",
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,21 +24,25 @@ export class Login extends Component {
     
     handleSubmit(event) {
         const {userLogin} = this.context;
-        console.log("hi")
         const user = {
             email: this.state.email,
             password: this.state.password
         }
-        let loginStatus = userLogin(user);
-        if (loginStatus) {
-            this.setState({redirect: "/"})
-        }
+        userLogin(user)
+            .then((res) => {
+                this.setState({errors: "", redirect: "/"})
+            }, (res) => {
+                console.dir(res);
+                this.setState({errors:"Wrong User Credentials, Please try again."})
+            })
+       
         event.preventDefault();
     }
     render() {
         if (this.state.redirect) {
             return <Redirect to={this.state.redirect} />
         }
+        
         return (
             <section className="section-wrap">
             <h1>Login</h1>    
@@ -50,6 +55,9 @@ export class Login extends Component {
                     <input type="password" name="password" value={this.state.password} onChange={this.handleChange} />
                 </label>
                 <input type="submit" value="Submit" onClick={this.handleSubmit}/>
+                {(this.state.errors !== "") ?
+                    this.state.errors
+                : null}
             </section>
         )
     }
