@@ -3,10 +3,10 @@ import React, { Component } from 'react'
 export class Login extends Component {
     render() {
         return (
-            <div>
+            <section className="section-wrap">
                 Login Page
-                
-            </div>
+
+            </section>
         )
     }
 }

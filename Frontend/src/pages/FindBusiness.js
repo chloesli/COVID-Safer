@@ -3,9 +3,9 @@ import React, { Component } from 'react'
 export class FindBusiness extends Component {
     render() {
         return (
-            <div>
+            <section className="section-wrap">
                 Find a business
-            </div>
+            </section>
         )
     }
 }

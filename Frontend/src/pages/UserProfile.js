@@ -3,9 +3,9 @@ import React, { Component } from 'react'
 export class UserProfile extends Component {
     render() {
         return (
-            <div>
+            <section className="section-wrap">
                 Your Covid Safer Profile
-            </div>
+            </section>
         )
     }
 }

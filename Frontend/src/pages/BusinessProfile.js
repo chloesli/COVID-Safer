@@ -3,10 +3,10 @@ import React, { Component } from 'react'
 export class BusinessProfile extends Component {
     render() {
         return (
-            <div>
+            <section className="section-wrap">
                 Your Business BusinessProfile
                 
-            </div>
+            </section>
         )
     }
 }
