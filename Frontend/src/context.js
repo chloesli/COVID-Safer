@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {users} from './Data'
+import axios from 'axios'
 export const AppContext = React.createContext();
 // <RoomContext.Provider value ={}
 export class AppProvider extends Component {
@@ -7,51 +7,69 @@ export class AppProvider extends Component {
         super(props)
     
         this.state = {
-            users: users,
-            user: {
-                fname: "Angela",
-                lname: "Huang2",
-                mobile:4123123212,
-                age: 20,
-                address: "1 Sydney Road, Sydney NSW",
-                email: "angela.huang@gmail.com",
-                password: "apurva"
-            },
+            user: JSON.parse(localStorage.getItem('user')) || {},
             businesses: [],
-            loggedIn: false, 
-            isBusiness: false,
-            AuthToken: ""
+            loggedIn: localStorage.getItem('loggedIn') || "false", 
+            isBusiness: localStorage.getItem('isBusiness') || "false",
+            authToken: localStorage.getItem('authToken') || ""
         }
     }
     userLogin = (user) => {
         // Make request
-        let currUser = users.find((u) => u.email === user.email);
-        this.setState({
-            loggedIn: true,
-            user: currUser
+        console.log(user);
+        return new Promise((resolve, reject) => {
+            axios.post(`http://localhost:1337/api/auth/login?emailAddress=${user.email}&password=${user.password}`)
+            .then((res) => {
+
+                console.dir(res);
+                this.setState({
+                    loggedIn: "true",
+                    user: res.data.user,
+                    authToken: res.token,
+                    isBusiness: "false",
+                })
+                localStorage.setItem('user', JSON.stringify(res.data.user))
+                localStorage.setItem('loggedIn', "true")
+                localStorage.setItem('isBusiness', "false")
+                localStorage.setItem('authToken', res.data.token);
+                resolve("Login Success");
+            })
+            .catch((err) => {
+                console.log(err);
+                reject(err);
+            })
         })
-        console.log(currUser);
-        return true;
+
     }
     businessLogin = (business) => {
         
         this.setState({
-            loggedIn: true,
-            isBusiness: true,
+            loggedIn: "true",
+            isBusiness: "true",
         })
         return true;
     }
 
     signOut = () => {
+        localStorage.clear();
+
         this.setState({
             user: {},
-            loggedIn: false, 
-            isBusiness: false,
+            loggedIn: "false", 
+            isBusiness: "false",
         })
     }
     registerNewUser = (user) => {
-        console.log(user)
-        return true;
+        console.log(user);
+        return new Promise((resolve, reject) => {
+            axios.post(`http://localhost:1337/api/auth/register?emailAddress=${user.email}&password=${user.password}&firstName=${user.fname}&lastName=${user.lname}`)
+                .then((res) => {
+                    console.log(res);
+                    resolve("User Successfully Created")
+                }, (res) => {
+                    reject(res)
+                })
+        })
     }
     registerNewBusiness = (business) => {
         console.log(business)
@@ -63,8 +81,8 @@ export class AppProvider extends Component {
                 userLogin: this.userLogin, 
                 businessLogin: this.businessLogin,
                 signOut: this.signOut,
-                registerNewUser: this.registerNewBusiness,
-                registerNewBusiness: this.registerNewUser,
+                registerNewUser: this.registerNewUser,
+                registerNewBusiness: this.registerNewBusiness,
             }}>
                 {this.props.children}
             

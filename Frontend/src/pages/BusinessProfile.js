@@ -4,7 +4,7 @@ export class BusinessProfile extends Component {
     render() {
         return (
             <section className="section-wrap">
-                Your Business BusinessProfile
+                Your Business Profile
                 
             </section>
         )

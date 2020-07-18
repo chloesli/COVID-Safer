@@ -71,12 +71,12 @@ export class Navbar extends Component {
                         </div>
                         <div className={this.state.showNav ? `nav-drawer show` : `nav-drawer`}>
                         {
-                            !loggedIn ? this.linksMapped(nonAuthLinks): 
-                            (isBusiness ? this.linksMapped(businessLinks) : this.linksMapped(userLinks))
+                            loggedIn === "false" ? this.linksMapped(nonAuthLinks): 
+                            (isBusiness === "true" ? this.linksMapped(businessLinks) : this.linksMapped(userLinks))
                         
                         }
                         {
-                            loggedIn? <Link to="/Logout" className="logout-but"> Sign out</Link> : null
+                            loggedIn ==="true" ? <Link to="/Logout" className="logout-but"> Sign out</Link> : null
                         }
                         </div>
                     </div>
