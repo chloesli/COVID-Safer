@@ -56,8 +56,11 @@ module.exports = {
       locationName: inputs.name,
       address: inputs.address,
       suburb: inputs.suburb,
-      postcode: inputs.postcode
+      postcode: inputs.postcode,
+      businessUser: this.req.user.id
     }).fetch();
+
+    //
 
     //Return relevant success message
     return exits.success({
