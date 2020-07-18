@@ -72,9 +72,45 @@ export class AppProvider extends Component {
         })
     }
     registerNewBusiness = (business) => {
-        console.log(business)
-        return true;
+        return new Promise((resolve, reject) => {
+            axios.post(`http://localhost:1337/api/auth/register?emailAddress=${business.email}
+            &password=${business.password}&firstName=${business.fname}&lastName=${business.lname}
+            &isBusiness=true&address=${business.address}&ageRange=`)
+                .then((res) => {
+                    console.log(res);
+                    resolve("Business Successfully Created")
+                }, (res) => {
+                    reject(res)
+                })
+        })
     }
+    getAllPlaces = () => {
+        console.log(this.state.authToken);
+        const config = {
+            headers: { Authorization: `Bearer ${this.state.authToken}` }
+        };
+        return new Promise((resolve, reject) => { 
+            axios.get('http://localhost:1337/place', config)
+                .then((res) => {
+                    console.log(res);
+                    resolve("Places Successful")
+                }, (res) => {
+                    reject(res)                
+                })
+        })
+    }
+    getUsersPlaces = () => {
+        return new Promise((resolve, reject) => { 
+            axios.get('http://localhost:1337/place')
+                .then((res) => {
+                    console.log(res);
+                    resolve("Places Successful")
+                }, (res) => {
+                    reject(res)                
+                })
+        })
+    }
+
     render() {
         return (
             <AppContext.Provider value={{...this.state, 
@@ -83,6 +119,7 @@ export class AppProvider extends Component {
                 signOut: this.signOut,
                 registerNewUser: this.registerNewUser,
                 registerNewBusiness: this.registerNewBusiness,
+                getAllPlaces: this.getAllPlaces,
             }}>
                 {this.props.children}
             

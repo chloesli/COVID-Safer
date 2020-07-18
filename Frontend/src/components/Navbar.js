@@ -23,7 +23,7 @@ const businessLinks = [
 ]
 
 const userLinks = [
-    <Link to="/find-a-business">Find Business</Link>,
+    <Link to="/">Home</Link>,
     <Link to="/UserProfile">Profile</Link>,
 ]
 

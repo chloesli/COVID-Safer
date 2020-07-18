@@ -1,11 +1,17 @@
 import React, { Component } from 'react'
-
+import SearchPlaces from '../components/SearchPlaces'
 export class Home extends Component {
+    constructor(props) {
+        super(props)
+    
+        this.state = {
+             
+        }
+    }
+    
     render() {
         return (
-            <section className="section-wrap">
-                App Home
-            </section>
+            <SearchPlaces/>
         )
     }
 }
