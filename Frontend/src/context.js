@@ -26,11 +26,11 @@ export class AppProvider extends Component {
                     loggedIn: "true",
                     user: res.data.user,
                     authToken: res.data.token,
-                    isBusiness: "false",
+                    isBusiness: res.data.user.isBusiness.toString(),
                 })
                 localStorage.setItem('user', JSON.stringify(res.data.user))
                 localStorage.setItem('loggedIn', "true")
-                localStorage.setItem('isBusiness', "false")
+                localStorage.setItem('isBusiness', res.data.user.isBusiness.toString())
                 localStorage.setItem('authToken', res.data.token);
                 resolve("Login Success");
             })
@@ -40,14 +40,6 @@ export class AppProvider extends Component {
             })
         })
 
-    }
-    businessLogin = (business) => {
-        
-        this.setState({
-            loggedIn: "true",
-            isBusiness: "true",
-        })
-        return true;
     }
 
     signOut = () => {
@@ -74,9 +66,7 @@ export class AppProvider extends Component {
     registerNewBusiness = (business) => {
         console.log(business)
         return new Promise((resolve, reject) => {
-            axios.post(`http://localhost:1337/api/auth/register?emailAddress=${business.email}
-            &password=${business.password}&firstName=${business.fname}&lastName=${business.lname}
-            &isBusiness=true&address=${business.address}&ageRange=`)
+            axios.post(`http://localhost:1337/api/auth/register?emailAddress=${business.email}&password=${business.password}&firstName=${business.fname}&lastName=${business.lname}&isBusiness=true&address=${business.address}&ageRange=`)
                 .then((res) => {
                     console.log(res);
                     resolve("Business Successfully Created")
@@ -94,7 +84,7 @@ export class AppProvider extends Component {
             axios.get('http://localhost:1337/place', config)
                 .then((res) => {
                     console.log(res);
-                    resolve("Places Successful")
+                    resolve(res)
                 }, (res) => {
                     reject(res)                
                 })
@@ -111,19 +101,32 @@ export class AppProvider extends Component {
                 })
         })
     }
-
+    checkInUser = (placeId) => {
+        const config = {
+            headers: { Authorization: `Bearer ${this.state.authToken}` }
+        };
+        return new Promise((resolve, reject) => {
+            let dateNow = new Date().toISOString();
+            axios.post(`http://localhost:1337/api/check-in?enteredDatetime=${dateNow}&placeId=${placeId}`, null, config)
+                .then((res) => {
+                    console.log(res);
+                    resolve("Check In Success")
+                }, (res) => {
+                    reject(res);
+                })
+        })
+    }
     render() {
         return (
             <AppContext.Provider value={{...this.state, 
                 userLogin: this.userLogin, 
-                businessLogin: this.businessLogin,
                 signOut: this.signOut,
                 registerNewUser: this.registerNewUser,
                 registerNewBusiness: this.registerNewBusiness,
                 getAllPlaces: this.getAllPlaces,
+                checkInUser: this.checkInUser,
             }}>
                 {this.props.children}
-            
             </AppContext.Provider>
         )
     }

@@ -38,7 +38,7 @@ export class BusinessSignUp extends Component {
         
         registerNewBusiness(user)
             .then((res) => {
-                this.setState({redirect: "/Login"})
+                this.setState({redirect: "/BusinessLogin"})
             }, (res) => {
                 console.log(res);
                 this.setState({errors: res.response.data.message});

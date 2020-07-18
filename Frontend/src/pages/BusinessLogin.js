@@ -8,7 +8,8 @@ export class BusinessLogin extends Component {
         this.state = {
              email: "",
              password: "",
-             redirect: null
+             redirect: null,
+             errors: "",
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,18 +23,26 @@ export class BusinessLogin extends Component {
     }
     
     handleSubmit(event) {
-        const {businessLogin} = this.context;
-        console.log("hi")
-        let loginStatus = businessLogin();
-        if (loginStatus) {
-            this.setState({redirect: "/"})
+        const {userLogin} = this.context;
+        const user = {
+            email: this.state.email,
+            password: this.state.password
         }
+        userLogin(user)
+            .then((res) => {
+                this.setState({errors: "", redirect: "/"})
+            }, (res) => {
+                console.dir(res);
+                this.setState({errors:"Wrong User Credentials, Please try again."})
+            })
+       
         event.preventDefault();
     }
     render() {
         if (this.state.redirect) {
             return <Redirect to={this.state.redirect} />
         }
+        
         return (
             <section className="section-wrap">
             <h1>Business Login</h1>    
@@ -46,6 +55,9 @@ export class BusinessLogin extends Component {
                     <input type="password" name="password" value={this.state.password} onChange={this.handleChange} />
                 </label>
                 <input type="submit" value="Submit" onClick={this.handleSubmit}/>
+                {(this.state.errors !== "") ?
+                    this.state.errors
+                : null}
             </section>
         )
     }

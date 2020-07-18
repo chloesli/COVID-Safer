@@ -10,6 +10,7 @@ import BusinessProfile from './pages/BusinessProfile'
 import BusinessSignUp from './pages/BusinessSignUp'
 import Logout from './pages/Logout'
 import BusinessLogin from './pages/BusinessLogin'
+import PlaceProfile from './pages/PlaceProfile'
 import {
   Switch,
   Route,
@@ -28,6 +29,7 @@ function App() {
       <Route exact path="/BusinessProfile" component={BusinessProfile}/>
       <Route exact path="/BusinessSignUp" component={BusinessSignUp}/>
       <Route exact path="/Logout" component={Logout}/>
+      <Route exact path="/PlaceProfile/:bid" component={PlaceProfile}/>
    
       {
         
