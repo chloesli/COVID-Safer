@@ -189,23 +189,23 @@ section:first-of-type {
 
 /* Background for login page*/
 #login .section-wrap {
-  background-color:red;
+  background: linear-gradient(45deg, #92D2E2, #28FFFF);
 }
 
 /* Background for login page*/
 #signup .section-wrap {
-  background-color:red;
+  background: linear-gradient(45deg, #92D2E2, #28FFFF);
 }
 /* Background for login page*/
 #user-profile .section-wrap {
-  background-color:red;
+  background: linear-gradient(45deg, #92D2E2, #28FFFF);
 }
 /* Background for business login page*/
 #business-login .section-wrap {
-  background-color:red;
+  background: linear-gradient(45deg, #BF92E2, #2864FF);
 }
 #business-signup .section-wrap {
-  background-color:red;
+  background-color: #BF92E2;
 }
 
 h1 {
