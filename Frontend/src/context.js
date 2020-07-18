@@ -11,7 +11,8 @@ export class AppProvider extends Component {
             businesses: [],
             loggedIn: localStorage.getItem('loggedIn') || "false", 
             isBusiness: localStorage.getItem('isBusiness') || "false",
-            authToken: localStorage.getItem('authToken') || ""
+            authToken: localStorage.getItem('authToken') || "",
+            hasPlace: false,
         }
     }
     userLogin = (user) => {
@@ -41,7 +42,29 @@ export class AppProvider extends Component {
         })
 
     }
-
+    getBusinessPlace = () => {
+        const config = {
+            headers: { Authorization: `Bearer ${this.state.authToken}` }
+        };
+        return new Promise((resolve, reject) => {
+            axios.get('http://localhost:1337/api/find-by-user', config)
+            .then((res) => {
+                console.dir(res);
+                this.setState({
+                    businesses: res.data.place,
+                    hasPlace: true
+                })
+                resolve(res);
+            }, (res) => {
+                this.setState({
+                    hasPlace: false
+                })
+                console.log(res);
+                reject(res);
+            })
+        })
+        
+    }
     signOut = () => {
         localStorage.clear();
 
@@ -72,6 +95,34 @@ export class AppProvider extends Component {
                     resolve("Business Successfully Created")
                 }, (res) => {
                     reject(res)
+                })
+        })
+    }
+    registerNewPlace = (place) => {
+        console.log(place);
+        const config = {
+            headers: { Authorization: `Bearer ${this.state.authToken}` }
+        };
+        return new Promise((resolve, reject) => {
+            axios.post(`http://localhost:1337/api/add-place?name=${place.name}&address=${place.address}&suburb=${place.suburb}&postcode=${place.postcode}`, null, config)
+                .then((res) => {
+                    console.log(res);
+                    resolve("place Successfully Created")
+                }, (res) => {
+                    reject(res)
+                })
+        })
+    }
+    getAllVisitors = (id) => {
+        const config = {
+            headers: { Authorization: `Bearer ${this.state.authToken}` }
+        };
+        return new Promise((resolve, reject) => {
+            axios.get(`http://localhost:1337/api/users-visited?placeId=${id}`, config)
+                .then((res) => {
+                    resolve("Got All visitors");
+                }, (res) => {
+                    reject(res);
                 })
         })
     }
@@ -125,6 +176,9 @@ export class AppProvider extends Component {
                 registerNewBusiness: this.registerNewBusiness,
                 getAllPlaces: this.getAllPlaces,
                 checkInUser: this.checkInUser,
+                getBusinessPlace: this.getBusinessPlace,
+                registerNewPlace: this.registerNewPlace,
+                getAllVisitors: this.getAllVisitors,
             }}>
                 {this.props.children}
             </AppContext.Provider>

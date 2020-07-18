@@ -44,7 +44,7 @@ export class BusinessLogin extends Component {
         }
         
         return (
-            <section className="section-wrap">
+            <section className="section-wrap" id="business-login">
             <h1>Business Login</h1>    
                 <label>
                     Email Address:<p></p>

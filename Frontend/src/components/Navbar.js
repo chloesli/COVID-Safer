@@ -19,6 +19,7 @@ const nonAuthLinks = [
     <Link to="/BusinessSignUp">Business Sign Up</Link>
 ]
 const businessLinks = [
+    <Link to="/">Home</Link>,
     <Link to="/BusinessProfile">Business Profile</Link>,
 ]
 

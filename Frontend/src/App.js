@@ -11,6 +11,8 @@ import BusinessSignUp from './pages/BusinessSignUp'
 import Logout from './pages/Logout'
 import BusinessLogin from './pages/BusinessLogin'
 import PlaceProfile from './pages/PlaceProfile'
+import RegisterPlace from './pages/RegisterPlace'
+import NewBusinessConfirmation from './pages/NewBusinessConfirmation'
 import {
   Switch,
   Route,
@@ -30,7 +32,8 @@ function App() {
       <Route exact path="/BusinessSignUp" component={BusinessSignUp}/>
       <Route exact path="/Logout" component={Logout}/>
       <Route exact path="/PlaceProfile/:bid" component={PlaceProfile}/>
-   
+      <Route exact path="/RegisterPlace" component={RegisterPlace}/>
+      <Route exact path="/NewBusinessConfirmation" component={NewBusinessConfirmation}/>
       {
         
         // <Route exact path="/businesses/" component={Rooms}/>
