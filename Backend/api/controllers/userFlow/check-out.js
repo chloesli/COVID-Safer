@@ -2,28 +2,19 @@ var _ = require('lodash');
 
 module.exports = {
 
-  friendlyName: 'Add a visit to a place',
+  friendlyName: 'Check out of a place',
 
   description: 'Add a visit to a place',
 
   inputs: {
 
-    name: {
+    exitedDatetime: {
       required: true,
       type: 'string',
+      description: 'ISO datetime'
     },
 
-    address: {
-      required: true,
-      type: 'string',
-    },
-
-    suburb:  {
-      required: true,
-      type: 'string',
-    },
-
-    postcode:  {
+    visitId: {
       required: true,
       type: 'number',
     },
@@ -46,23 +37,18 @@ module.exports = {
   },
 
   fn: async function (inputs, exits) {
+        
+    var visit = await Visit.updateOne({id: inputs.visitId}).set({
+      departDateTime: inputs.exitedDatetime,
+    })
 
-    //Check if user is a business user
-    if(!this.req.user.isBusiness){
-      return exits.invalid({message: 'You aren\'t a business user'})
+    if(!visit){
+      return exits.invalid({message: 'No visit with that ID found'})
     }
 
-    var newPlace = await Place.create({
-      locationName: inputs.name,
-      address: inputs.address,
-      suburb: inputs.suburb,
-      postcode: inputs.postcode
-    }).fetch();
-
-    //Return relevant success message and rdbNumber
     return exits.success({
-      message: 'new Place created',
-      place: newPlace,
+      message: 'Added checkout time',
+      visit: visit
     })
   }
 
