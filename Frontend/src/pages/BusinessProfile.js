@@ -35,8 +35,7 @@ export class BusinessProfile extends Component {
                     <li>Address: {address}</li>
                     <li>Email: {email}</li>
                 </ul>
-                <h2>Places You Manage</h2>
-                
+              
             </section>
         )
     }

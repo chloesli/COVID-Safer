@@ -8,7 +8,7 @@ const allLinks = [
     <Link to="/Login">Login</Link>,
     <Link to="/BusinessLogin">Business Login</Link>,
     <Link to="/UserSignUp">Sign Up</Link>,
-    <Link to="/UserProfile">My Profile</Link>,
+    <Link to="/Alerts">My Profile</Link>,
     <Link to="/BusinessProfile">Business Profile</Link>,
     <Link to="/BusinessSignUp">Business Sign Up</Link>
 ]
@@ -21,11 +21,13 @@ const nonAuthLinks = [
 const businessLinks = [
     <Link to="/">Home</Link>,
     <Link to="/BusinessProfile">Business Profile</Link>,
+    <Link to="/Export">Export Data</Link>,
 ]
 
 const userLinks = [
     <Link to="/">Home</Link>,
     <Link to="/UserProfile">Profile</Link>,
+    <Link to="/Alerts">Alerts</Link>,
 ]
 
 export class Navbar extends Component {
@@ -77,7 +79,12 @@ export class Navbar extends Component {
                         
                         }
                         {
-                            loggedIn ==="true" ? <Link to="/Logout" className="logout-but"> Sign out</Link> : null
+                            loggedIn ==="true" ? 
+                            <>
+                                <Link to="/Logout" className="logout-but"> Sign out</Link> 
+                                <Link to="/Covid" className="report-but">Report Infection</Link> 
+                            </>
+                            : null
                         }
                         </div>
                     </div>

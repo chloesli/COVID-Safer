@@ -40,6 +40,16 @@ input[type=submit] {
   border: 1px solid blue;
 }
 /*Logout button in the navbar at the bottom*/
+.report-but {
+  background-color:var(--primary) !important;
+  padding: 5px 5px;
+  width: calc(100% - 20px);
+  min-width:100px;
+  position: absolute;
+  color: white;
+  bottom: 60px;
+  left: 10px;
+}
 .logout-but {
   background-color:var(--primary) !important;
   padding: 5px 5px;

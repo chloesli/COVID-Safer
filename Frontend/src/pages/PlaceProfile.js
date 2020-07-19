@@ -27,6 +27,10 @@ export class PlaceProfile extends Component {
             })
         })
     }
+    parseISOString = (s) => {
+        var b = s.split(/\D+/);
+        return new Date(Date.UTC(b[0], --b[1], b[2], b[3], b[4], b[5], b[6]));
+    }
     checkIn = () => {
         const {checkInUser} = this.context;
         checkInUser(this.state.currentPlace.id).then((res) => {
@@ -35,6 +39,14 @@ export class PlaceProfile extends Component {
             })
         }, (res) => {
             console.log(res);
+        })
+    }
+    mapCovidInstances = () => {
+        return this.state.currentPlace.covidInstances.map((instance, i) => {
+            return <div className="place-wrap" key={i}>
+                <div className="body">{this.parseISOString(instance.dateAcquired).toDateString()}<p></p>
+                 {this.parseISOString(instance.dateAcquired).toLocaleTimeString()}</div>
+            </div>
         })
     }
     createMarkup = () => {
@@ -55,8 +67,9 @@ export class PlaceProfile extends Component {
         
         <h3>COVID 19 Reports</h3>
  
-        {covidInstances ? ((covidInstances.length == 0) ? "COVID Free!" : covidInstances.length)
-    
+        {covidInstances ? ((covidInstances.length == 0)) 
+            ? <p>"COVID Free!" </p> :  this.mapCovidInstances() 
+   
         : null}
         </>
     }

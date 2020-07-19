@@ -16,7 +16,7 @@ export class Home extends Component {
         let {isBusiness} = this.context;
         return (
             <>
-                {isBusiness ? <CustomerCheckIns/> : <SearchPlaces/>}
+                {isBusiness ==="true" ? <CustomerCheckIns/> : <SearchPlaces/>}
             </>
         )
     }
