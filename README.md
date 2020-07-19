@@ -15,4 +15,19 @@ Created By: Angela Huang, Apurva Shukla, Chloe Li, Nelson Long
 
 *Disclaimer: This is a Minimum Viable Product, therefore you are likely to run into bugs/errors*
 
+# Quick Demo
+![gif1](covidsaferdemo.gif)
+
+# Screenshots
+![pic1](screenshots/user-register.png)
+
+![pic2](screenshots/business-register.png)
+
+![pic3](screenshots/checkin.png)
+
+![pic4](screenshots/checkedincomplete.png)
+
+![pic5](screenshots/alert.png)
+
+![pic6](screenshots/navbar.png)
 
