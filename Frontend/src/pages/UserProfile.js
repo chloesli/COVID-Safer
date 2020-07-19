@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {AppContext} from '../context'
-import DefaultIcon from '../components/DefaultIcon';
+import UserIcon from '../components/UserIcon';
 export class UserProfile extends Component {
     constructor(props) {
         super(props)
@@ -27,7 +27,7 @@ export class UserProfile extends Component {
         return (
             <section className="section-wrap profile">
                 <h1>Your Covid Safer Profile</h1>
-                <DefaultIcon letters={firstName[0]}></DefaultIcon>
+                <UserIcon letters={firstName[0]}></UserIcon>
                 <ul>
                     <li>Name: {`${firstName} ${lastName}`}</li>
                     <li>Mobile: {mobile}</li>

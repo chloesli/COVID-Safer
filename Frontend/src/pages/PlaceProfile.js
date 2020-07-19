@@ -77,7 +77,10 @@ export class PlaceProfile extends Component {
 
         return (
             <section>
+            <div className="section-body">
                 {!this.state.loading ? this.createMarkup() : null}
+            </div>
+                
             </section>
     
         )

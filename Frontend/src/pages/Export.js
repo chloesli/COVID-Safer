@@ -4,6 +4,8 @@ export default class Export extends Component {
     render() {
         return (
             <section className="section-wrap">
+            <div className="section-body">
+            
                 <h1>Export Customer (CSV)</h1>
                 Date Range:
                 <select name="cars" id="cars">
@@ -16,6 +18,7 @@ export default class Export extends Component {
 
               <div className="button">Email</div>
               <div className="button">Download</div>
+              </div>
             </section>
         )
     }

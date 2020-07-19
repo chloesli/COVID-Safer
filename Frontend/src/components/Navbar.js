@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import {AppContext} from '../context'
 import {IoMdMenu} from "react-icons/io";
+let logo = require('../img/logo.jpg')
 const allLinks = [
     <Link to="/">Home</Link>,
     <Link to="/find-a-business">Find Business</Link>,
@@ -63,7 +64,7 @@ export class Navbar extends Component {
         return (
             <>
                 <nav className="navbar">
-                    <Link to="/"> <h1>Logo</h1></Link>
+                    <Link to="/"> <img className="logo" src={logo}/> </Link>
                     
                     <div className="links align-left">
                         {this.linksMapped(businessLinks)}

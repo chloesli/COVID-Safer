@@ -62,16 +62,22 @@ export default class CustomerCheckIns extends Component {
         let hasPlace = this.context.hasPlace
         return (
             <section className="section-wrap">
+            <div className="section-body">
                 {!hasPlace ? <CreatePlace/> : 
                     <>
-                    <Link to={`/PlaceProfile/${this.state.currentPlace.id}`}>View Your Businesses Page</Link>
-
+                    <div className="button">
+                    <Link to={`/PlaceProfile/${this.state.currentPlace.id}`}>My Store</Link>
+                    </div>
+                    
+                  
+                    
+                    <p></p>
                     Your Recent Customer Check ins
                     {this.showVisitors()}
                     </>
                     
                 }
-                
+                </div>
             </section>
         )
     }

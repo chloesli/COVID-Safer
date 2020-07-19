@@ -31,6 +31,15 @@ input[type=text], input[type=email], input[type=password] {
   width:100%;
   margin-bottom:15px;
 }
+input[type=text].search {
+  background-color:white;
+  font-size: 18px;
+  border: none;
+  border-bottom: 1px solid var(--secondaryColor);
+  width:100%;
+  margin-bottom:15px;
+
+}
 /*when the input bar is clicked */
 label {
   width:100%;
@@ -60,7 +69,7 @@ input[type=submit] {
 
 /*Logout button in the navbar at the bottom*/
 .report-but {
-  background-color:var(--primary) !important;
+  background-color:var(--primaryColor) !important;
   padding: 5px 5px;
   width: calc(100% - 20px);
   min-width:100px;
@@ -70,7 +79,7 @@ input[type=submit] {
   left: 10px;
 }
 .logout-but {
-  background-color:var(--primary) !important;
+  background-color:var(--primaryColor) !important;
   padding: 5px 5px;
   width: calc(100% - 20px);
   min-width:100px;
@@ -211,11 +220,27 @@ section:first-of-type {
   display:flex;
   flex-direction: column;
   align-items:center;
-  justify-content: center;
   padding: 30px 0px;
   background-color:white;
 }
 
+.place-wrap {
+  border: 1px solid #E2E2E2;
+  box-sizing: border-box;
+  border-radius: 2px; 
+  margin-bottom:10px;
+  padding:10px;
+  
+}
+
+.alert-container {
+  border: 1px solid #fd6767;
+  box-sizing: border-box;
+  border-radius: 2px; 
+  margin-bottom:10px;
+  padding:10px;
+  margin:20px;
+}
 /* Background for login page*/
 #login.section-wrap {
   background: linear-gradient(24.79deg, rgba(146, 210, 226, 0.96) 35.94%, rgba(40, 255, 255, 0.68) 100%);
@@ -295,10 +320,19 @@ section:first-of-type {
 
 /* Background for business login page*/
 #business-login.section-wrap {
-  background: linear-gradient(45deg, #BF92E2, #2864FF);
+  background: #92D2E2;
+  background-image:url('./img/BusinessLogIn.png');
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+#business-login.section-wrap h1, #business-signup.section-wrap h1 {
+  color:white;
 }
 #business-signup.section-wrap {
-  background-color: #BF92E2;
+  background: #92D2E2;
+  background-image:url('./img/BusinessSignUp.png');
+  background-repeat: no-repeat;
+  background-size: auto;
 }
 
 .section-wrap h1 {
@@ -308,11 +342,25 @@ section:first-of-type {
  margin-bottom:30px;
 }
 h2 {
-  color: peachpuff;
+  color: var(--headingSecondary);
 }
 h3 {
-  color:saddlebrown;
+  color:var(--darkGrey);
+  font-size:16px;
 }
+
+.checkIn-but, .button {
+  padding:20px;
+  color:var(--darkGrey);
+  width:100%;
+  background: #FFDA7C;
+border-radius: 4px;
+margin-top:20px;
+margin-bottom: 20px;
+font-size:24px;
+text-align:center;
+}
+
 .profile ul {
   width:100%;
   display:block;
@@ -321,6 +369,25 @@ h3 {
 /* List stuff */
 .profile li {
   display:block;
-  border-bottom:1px solid rgb(44, 26, 161);
+  border-bottom:1px solid var(--secondaryColor);
   width:100%;
+  padding:10px 5px;
+}
+
+#checkIn.section-wrap {
+
+}
+
+img.icon {
+  height:70px;
+  width:70px;
+  border-radius:50%;
+  border: 1px solid var(--mainText);
+  padding:5px;
+  margin-bottom:15px;
+}
+
+.navbar img{
+  width:70px;
+  padding:10px;
 }

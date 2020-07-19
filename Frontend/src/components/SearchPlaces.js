@@ -62,11 +62,14 @@ export class SearchPlaces extends Component {
             return <Redirect to={this.state.redirect} />
         }
         return (
-            <section className="section-wrap">
+            <section className="section-wrap" id="checkIn">
+            <div className="section-body">
+            
                 <h1>Checking In?</h1>
-                <input type="text"name="search" value={this.state.search} onChange={this.handleChange}/>
+                <input className="search" type="text"name="search" placeholder="Search for a business" value={this.state.search} onChange={this.handleChange}/>
                 {(!this.state.loading && this.state.allPlaces) ? this.mapPlaces() : null}
-            </section>
+                </div>
+                </section>
         )
     }
 }

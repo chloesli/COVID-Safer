@@ -21,15 +21,21 @@ export default class Covid extends Component {
         if (this.state.reported) {
             return (
                 <section className="section-wrap">
-                    Stay Strong! Thank you for helping out the community!
-                    <Link to="/">Back to Home</Link> 
+                <div className="section-body">
+                Stay Strong! Thank you for helping out the community!
+                <div className="button">
+                <Link  to="/">Back to Home</Link> 
+                </div>
+                </div>
                 </section>
             )
         }
         return (
             <section className="section-wrap">
-                <h1>Have you had a successful test result?</h1>
-                <div className="button" onClick={this.reportCovid}>Yes, Alert All Businesses Visited in past 14 days</div>
+            <div className="section-body">
+            <h1>Have you had a successful test result?</h1>
+            <div className="button" onClick={this.reportCovid}>Yes, Alert All Businesses Visited in past 14 days</div>
+            </div>
             </section>
         )
     }
