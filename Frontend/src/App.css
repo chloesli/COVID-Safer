@@ -8,7 +8,7 @@
   --headingSecondary: #73A5E0;
   --darkGrey: #45505b;
 
-  --boxShadow: 0px 4px 12px rgba(0, 0, 0, 0.09); 
+  --boxShadow: 0px 4px 12px rgba(0, 0, 0, 0.09);
   --bodyText: 14px;
   --headingSecondarySize: 14px;
   --headingPrimarySize: 32px;
@@ -40,9 +40,9 @@ input[type=text]:focus, input[type=email]:focus, input[type=password]:focus {
   outline:none;
   border:none;
   border-bottom: 3px solid var(--secondaryColor);
-  
+
 }
-/*  The submit Button */ 
+/*  The submit Button */
 input[type=submit] {
   width:100%;
   left: 66px;
@@ -55,7 +55,7 @@ input[type=submit] {
 }
 .section-body {
   padding:30px;
-  
+
 }
 
 /*Logout button in the navbar at the bottom*/
@@ -102,7 +102,7 @@ a {
 }
 .navbar {
   display:flex;
-  flex-wrap:row; 
+  flex-wrap:row;
   background-color:white;
   opacity:0.8;
   width:100%;
@@ -123,7 +123,7 @@ a {
 }
 
 .links li{
-  display:inline-block; 
+  display:inline-block;
   padding: 5px 20px;
 }
 
@@ -290,7 +290,7 @@ section:first-of-type {
 
 /* Background for login page*/
 #user-profile.section-wrap {
-  background-color: #FFFFFF !important; 
+  background-color: #FFFFFF !important;
 }
 
 /* Background for business login page*/
