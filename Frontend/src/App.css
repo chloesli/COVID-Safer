@@ -212,6 +212,9 @@ section:first-of-type {
 /* Background for sign up page*/
 #signup.section-wrap {
   background: #92D2E2;
+  background-image:url('./img/signin.png');
+  background-repeat: no-repeat;
+  background-size: auto;
 }
 
 /* Background for sign up page*/

@@ -46,11 +46,11 @@ export class Login extends Component {
         return (
             <section className="section-wrap" id="login">
             <h1>Login</h1>    
-                <label class='inputfield'>
+                <label className='inputfield'>
                     Email Address: <p></p>
                     <input type="email" name="email" value={this.state.email} onChange={this.handleChange}/>
                 </label>
-                <label class='inputfield'>
+                <label className='inputfield'>
                     Password:<p></p>
                     <input type="password" name="password" value={this.state.password} onChange={this.handleChange} />
                 </label>
