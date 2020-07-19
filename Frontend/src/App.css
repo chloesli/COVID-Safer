@@ -29,15 +29,15 @@ input[type=text], input[type=email], input[type=password] {
 }
 /*when the input bar is clicked */
 input[type=text]:focus, input[type=email]:focus, input[type=password]:focus {
-  background-color:pink;
+  background-color:white;
   font-size: 18px;
   border: 4px dashed rebeccapurple;
 }
 /*  The submit Button */ 
 input[type=submit] {
   padding:20px;
-  background-color:plum;
-  border: 1px solid blue;
+  background-color:#FFDA7C;
+  border: 1px solid #FFDA7C;
 }
 /*Logout button in the navbar at the bottom*/
 .report-but {
