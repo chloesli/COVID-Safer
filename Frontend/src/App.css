@@ -1,12 +1,12 @@
 :root {
-  --primaryColor:#D2E7FF;
+  --primaryColor:#92D2E2;
+  --secondaryColor:#CEEBF2;
   --mainWhite: #fff;
   --offWhite: #F8F9FD;
   --mainText: #434343;
-  --headingPrimary:#333333;
+  --headingPrimary:#0b85a5;
   --headingSecondary: #73A5E0;
   --darkGrey: #45505b;
-  --primary: #0C4654;
 
   --boxShadow: 0px 4px 12px rgba(0, 0, 0, 0.09); 
   --bodyText: 14px;
@@ -19,26 +19,45 @@
   margin: 0;
   padding:0;
   box-sizing:border-box;
+  font-family: var(--Roboto);
 }
+
 /* The input bars */
 input[type=text], input[type=email], input[type=password] {
-  background-color:white;
+  background-color:transparent;
   font-size: 18px;
   border: none;
-  border-bottom: 2px solid gray;
+  border-bottom: 1px solid var(--secondaryColor);
+  width:100%;
+  margin-bottom:15px;
 }
 /*when the input bar is clicked */
+label {
+  width:100%;
+}
 input[type=text]:focus, input[type=email]:focus, input[type=password]:focus {
-  background-color:pink;
-  font-size: 18px;
-  border: 4px dashed rebeccapurple;
+  width:100%;
+  outline:none;
+  border:none;
+  border-bottom: 3px solid var(--secondaryColor);
+  
 }
 /*  The submit Button */ 
 input[type=submit] {
-  padding:20px;
-  background-color:plum;
-  border: 1px solid blue;
+  width:100%;
+  left: 66px;
+  top: 443px;
+  padding:10px;
+  border:none;
+  background: #FFDA7C;
+  border-radius: 4px;
+  margin-top:20px;
 }
+.section-body {
+  padding:30px;
+  
+}
+
 /*Logout button in the navbar at the bottom*/
 .report-but {
   background-color:var(--primary) !important;
@@ -282,8 +301,11 @@ section:first-of-type {
   background-color: #BF92E2;
 }
 
-h1 {
-  font-family:'Courier New', Courier, monospace;
+.section-wrap h1 {
+ color:var(--headingPrimary);
+ font-size:24px;
+ text-align:center;
+ margin-bottom:30px;
 }
 h2 {
   color: peachpuff;

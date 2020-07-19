@@ -51,6 +51,7 @@ export class BusinessSignUp extends Component {
         }
         return (
             <section className="section-wrap" id="business-signup">
+            <section className="section-body">
             <h1>Business Sign Up</h1>   
                 <label>
                     First Name: <p></p>
@@ -73,6 +74,7 @@ export class BusinessSignUp extends Component {
                     <input type="password" name="password" value={this.state.password} onChange={this.handleChange} />
                 </label>
                 <input type="submit" value="Submit" onClick={this.handleSubmit}/>
+            </section>
             </section>
         )
     }

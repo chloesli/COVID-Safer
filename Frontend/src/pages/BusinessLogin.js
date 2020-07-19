@@ -45,6 +45,7 @@ export class BusinessLogin extends Component {
         
         return (
             <section className="section-wrap" id="business-login">
+            <section className="section-body">
             <h1>Business Login</h1>    
                 <label>
                     Email Address:<p></p>
@@ -58,6 +59,7 @@ export class BusinessLogin extends Component {
                 {(this.state.errors !== "") ?
                     this.state.errors
                 : null}
+                </section>
             </section>
         )
     }
