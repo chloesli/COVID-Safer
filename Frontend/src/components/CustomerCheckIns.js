@@ -31,16 +31,31 @@ export default class CustomerCheckIns extends Component {
                 })
             }
             return null;
-        }).then((res) => {
+        })
+        .then((res) => {
+            console.log(res);
             if(res) {
                 getAllVisitors(res)
                     .then((res) => {
-                        console.dir(res.data);
+                        console.dir(res.data.visitorsWithUsers);
                         this.setState({
-                            visitors: res.data
+                            visitors: res.data.visitorsWithUsers.visitor
                         })
                     })
             }
+        })
+    }
+    parseISOString = (s) => {
+        var b = s.split(/\D+/);
+        return new Date(Date.UTC(b[0], --b[1], b[2], b[3], b[4], b[5], b[6]));
+    }
+    showVisitors = () => {
+        return this.state.visitors.map((visitor, i) => {
+            console.dir(visitor)
+            return <div key={i} className="place-wrap">
+                <div className="place-title">{visitor.owningUser.firstName}</div>
+                <div className="place-sub">{this.parseISOString(visitor.arrivalDateTime).toDateString()}</div>
+            </div>
         })
     }
     render() {
@@ -49,10 +64,12 @@ export default class CustomerCheckIns extends Component {
             <section className="section-wrap">
                 {!hasPlace ? <CreatePlace/> : 
                     <>
-                    
-                    Your Recent Customer Check ins
                     <Link to={`/PlaceProfile/${this.state.currentPlace.id}`}>View Your Businesses Page</Link>
+
+                    Your Recent Customer Check ins
+                    {this.showVisitors()}
                     </>
+                    
                 }
                 
             </section>

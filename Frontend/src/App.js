@@ -13,6 +13,9 @@ import BusinessLogin from './pages/BusinessLogin'
 import PlaceProfile from './pages/PlaceProfile'
 import RegisterPlace from './pages/RegisterPlace'
 import NewBusinessConfirmation from './pages/NewBusinessConfirmation'
+import Export from './pages/Export';
+import Covid from './pages/Covid';
+import Alerts from './pages/Alerts';
 import {
   Switch,
   Route,
@@ -34,6 +37,9 @@ function App() {
       <Route exact path="/PlaceProfile/:bid" component={PlaceProfile}/>
       <Route exact path="/RegisterPlace" component={RegisterPlace}/>
       <Route exact path="/NewBusinessConfirmation" component={NewBusinessConfirmation}/>
+      <Route exact path="/Export" component={Export}/>
+      <Route exact path="/Covid" component={Covid}/>
+      <Route exact path="/Alerts" component={Alerts}/>
       {
         
         // <Route exact path="/businesses/" component={Rooms}/>

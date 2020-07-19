@@ -120,9 +120,25 @@ export class AppProvider extends Component {
         return new Promise((resolve, reject) => {
             axios.get(`http://localhost:1337/api/users-visited?placeId=${id}`, config)
                 .then((res) => {
-                    resolve("Got All visitors");
+                    resolve(res);
                 }, (res) => {
                     reject(res);
+                })
+        })
+    }
+    reportCovid = () => {
+        console.log(this.state.authToken);
+        const config = {
+            headers: { Authorization: `Bearer ${this.state.authToken}` }
+        };
+        return new Promise((resolve, reject) => { 
+            let ISODate = new Date().toISOString();
+            axios.post(`http://localhost:1337/api/covid?dateAcquired=${ISODate}`, null, config)
+                .then((res) => {
+                    console.log(res);
+                    resolve(res)
+                }, (res) => {
+                    reject(res)                
                 })
         })
     }
@@ -179,6 +195,7 @@ export class AppProvider extends Component {
                 getBusinessPlace: this.getBusinessPlace,
                 registerNewPlace: this.registerNewPlace,
                 getAllVisitors: this.getAllVisitors,
+                reportCovid: this.reportCovid,
             }}>
                 {this.props.children}
             </AppContext.Provider>
